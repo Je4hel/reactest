@@ -1,0 +1,12 @@
+.rt-task
+{
+    display: flex;
+
+    .rt-checkbox-box
+    {
+        input[type="checkbox"]
+        {
+            display: none;
+        }
+    }
+}

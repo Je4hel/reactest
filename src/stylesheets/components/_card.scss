@@ -1,0 +1,42 @@
+.rt-card
+{
+    margin: 20px;
+    padding: 30px;
+    padding-top: 0;
+    background-color: $color-white;
+
+    border-radius: 5px;
+    border: 1px solid $color-grey;
+    box-shadow: 0 0 50px $color-grey;
+
+    .rt-card-tag-list
+    {
+        padding: 0;
+        margin: 0;
+        margin-bottom: 30px;
+
+        list-style-type: none;
+
+        .rt-card-tag-item
+        {
+            display: inline-block;
+            margin-right: 10px;
+        }
+    }
+
+    .rt-card-author
+    {
+        display: inline-block;
+        margin-bottom: 30px;
+    }
+
+    .rt-card-attachments
+    {
+        margin-top: 30px;
+
+        .rt-card-attachments-item
+        {
+            margin-top: 10px;
+        }
+    }
+}

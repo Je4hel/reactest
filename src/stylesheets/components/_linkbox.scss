@@ -1,0 +1,41 @@
+.rt-linkbox
+{
+    display: grid;
+    grid-template-columns: 50px auto;
+    grid-template-rows: auto;
+    grid-template-areas: 
+        "image title"
+        "image description";
+    
+    border: 1px solid transparent;
+    border-radius: 5px;
+
+    &:hover
+    {
+        background-color: $color-grey-lighter;
+    }
+
+    .rt-linkbox-img
+    {
+        grid-area: image;
+        background: center/cover;
+        border-radius: 5px;
+    }
+
+    .rt-linkbox-text
+    {
+        padding-left: 10px;
+    }
+
+    .rt-linkbox-title
+    {
+        grid-area: title;
+        font-weight: bold;
+    }
+
+    .rt-linkbox-description
+    {
+        grid-area: description;
+        font-weight: lighter;
+    }
+}

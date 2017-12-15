@@ -1,0 +1,27 @@
+.rt-tag {
+    display: inline-block;
+    padding: 3px 10px;
+
+    color: $color-primary;
+    border-top: 3px solid $color-primary;
+
+    // This allows the tag not to change size when the text weight increases.
+    &::after
+    {
+        display: block;
+        height: 0;
+        content: attr(title);
+
+        font-weight: bold;
+        color: transparent;
+
+        overflow: hidden;
+        visibility: hidden;
+    }
+
+    &:hover
+    {
+        font-weight: bold;
+        cursor: pointer;
+    }
+}
