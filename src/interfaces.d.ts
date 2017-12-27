@@ -1,3 +1,5 @@
+import { CardModel } from "./model/CardModel";
+
 export interface IBaseProps
 {
     className?: string;
@@ -56,4 +58,9 @@ export interface ISidemenuProps extends IBaseProps
 export interface IAppProps extends IBaseProps
 {
     
+}
+
+export interface IAppState
+{
+    cards: CardModel[];
 }

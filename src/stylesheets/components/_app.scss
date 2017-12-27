@@ -5,6 +5,17 @@
 
     .rt-sidemenu
     {
+        flex-grow: 0;
         margin-right: 30px;
+    }
+
+    .rt-app-cards
+    {
+        flex-grow: 1;
+
+        .rt-card
+        {
+            margin-bottom: 30px;
+        }
     }
 }
