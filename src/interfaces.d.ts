@@ -37,3 +37,12 @@ export interface ITaskProps
     done?: boolean;
     className?: string;
 }
+
+export interface ICardProps
+{
+    title: string;
+    content: string;
+    author?: string;
+    date?: Date;
+    tags?: string[];
+}
