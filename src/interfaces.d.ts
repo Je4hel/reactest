@@ -50,5 +50,10 @@ export interface ICardProps extends IBaseProps
 
 export interface ISidemenuProps extends IBaseProps
 {
+    title?: string;
+}
+
+export interface IAppProps extends IBaseProps
+{
     
 }
