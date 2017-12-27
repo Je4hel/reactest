@@ -8,6 +8,65 @@
     border: 1px solid $color-grey;
     box-shadow: 0 0 50px $color-grey;
 
+    &.rt-card-editmode
+    {
+        border-top: none;
+        border-color: $color-warning;
+
+        .rt-card-banner
+        {
+            height: 15px;
+            background: repeating-linear-gradient(
+                -45deg,
+                lighten($color-warning, 20%),
+                lighten($color-warning, 20%) 10px,
+                $color-warning 10px,
+                $color-warning 20px
+            );
+        }
+
+        textarea
+        {
+            display: block;
+            width: 100%;
+            resize: vertical;
+        }
+    }
+
+    .rt-card-banner
+    {
+        position: relative;
+        left: -30px;
+
+        width: calc(100% + 60px);
+        height: 0;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+    }
+
+    .rt-card-header
+    {
+        padding: 30px 0;
+        display: flex;
+        justify-content: space-between;
+
+        .rt-card-info
+        {
+            flex-grow: 1;
+        }
+
+        .rt-card-actions
+        {
+            flex-grow: 0;
+            font-size: 0.8em;
+
+            .rt-card-action
+            {
+                margin-left: 10px;
+            }
+        }
+    }
+
     .rt-card-tag-list
     {
         padding: 0;
@@ -23,15 +82,9 @@
         }
     }
 
-    .rt-card-title
-    {
-        margin-top: 30px;
-    }
-
     .rt-card-author
     {
         display: inline-block;
-        margin-bottom: 30px;
     }
 
     .rt-card-attachments

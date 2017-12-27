@@ -10,6 +10,15 @@ export interface ICheckboxProps extends IBaseProps
     id?: string;
 }
 
+export interface IButtonProps extends IBaseProps
+{
+    primary?: boolean;
+    danger?: boolean;
+    warning?: boolean;
+    success?: boolean;
+    onClick?: (event: any) => any
+}
+
 export interface ITagProps extends IBaseProps
 {
     text: string;
@@ -41,7 +50,16 @@ export interface ITaskProps extends IBaseProps
     className?: string;
 }
 
-export interface ICardProps extends IBaseProps
+export interface ICardProps extends IBaseProps, ICardState
+{
+    isEditing?: boolean;
+
+    // Events
+    onSaveChanges?: (card: CardModel) => void;
+    onDismissChanges?: () => void;
+}
+
+export interface ICardState
 {
     title: string;
     content: string;
