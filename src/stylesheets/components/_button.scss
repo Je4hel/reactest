@@ -1,0 +1,80 @@
+.rt-button
+{
+    padding: 6px 11px 4px 11px;
+    text-transform: uppercase;
+    font-family: $font-semibold;
+    letter-spacing: 1px;
+
+    background: none;
+    border: none;
+    border-radius: 3px;
+
+    &:hover
+    {
+        padding: 5px 10px 3px 10px;
+        cursor: pointer;
+        border: 1px solid;
+
+        &.rt-primary
+        {
+            color: $color-white;
+
+            &.rt-danger
+            {
+                background-color: $color-danger;
+            }
+
+            &.rt-warning
+            {
+                background-color: $color-warning;
+            }
+
+            &.rt-success
+            {
+                background-color: $color-success;
+            }
+        }
+    }
+    &.rt-danger
+    {
+        color: $color-danger;
+        border-color: $color-danger;
+    }
+
+    &.rt-warning
+    {
+        color: $color-warning;
+        border-color: $color-warning;
+    }
+
+    &.rt-success
+    {
+        color: $color-success;
+        border-color: $color-success;
+    }
+
+    &.rt-primary
+    {
+        padding: 5px 10px 3px 10px;
+        color: $color-white;
+        border: 1px solid;
+
+        &.rt-danger
+        {
+            background-color: lighten($color-danger, 10%);
+            border-color: lighten($color-danger, 10%);
+        }
+
+        &.rt-warning
+        {
+            background-color: lighten($color-warning, 10%);
+            border-color: lighten($color-warning, 10%);
+        }
+
+        &.rt-success
+        {
+            background-color: lighten($color-success, 10%);
+            border-color: lighten($color-success, 10%);
+        }
+    }
+}
