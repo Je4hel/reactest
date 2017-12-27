@@ -7,6 +7,8 @@ import { Tag } from "../src/component/Tag";
 import { Author } from "../src/component/Author";
 import { Linkbox } from "../src/component/Linkbox";
 import { Task } from "../src/component/Task";
+import { Sidemenu } from "../src/component/Sidemenu";
+import { App } from "../src/component/App";
 
 require("../src/stylesheets/main.scss");
 
@@ -47,4 +49,20 @@ storiesOf("Reactest Components", module)
 
     .add("Task", () => {
         return <Task text="Go to the gym more regularly!" />
+    })
+
+    .add("Sidemenu", () => {
+        return (
+            <Sidemenu title="Reactest">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About us</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </Sidemenu>
+        )
+    })
+
+    .add("App", () => {
+        return <App />
     })
