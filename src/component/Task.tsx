@@ -1,20 +1,21 @@
 import * as React from "react";
+import * as classnames from "classnames";
 import { ITaskProps } from "../interfaces";
 
-let classnames = require("classnames");
+const checkbox = require("../asset/checkbox-unticked.svg");
 
 export class Task extends React.Component<ITaskProps>
 {
     render()
     {
         let outerClasses = classnames("rt-task", this.props.className);
-        const checkbox = require("svg-inline-loader!../asset/ticked.svg");
+        console.log(checkbox);
 
         return (
             <span className={outerClasses}>
+            { checkbox }
                 <span className="rt-checkbox-box">
                     <input type="checkbox" id="rt-task-checkbox" />
-                    <svg height="50px" dangerouslySetInnerHTML={{__html: checkbox}}></svg>
                 </span>
                 <label className="rt-checkbox-text" htmlFor="rt-task-checkbox">{this.props.text}</label>
             </span>

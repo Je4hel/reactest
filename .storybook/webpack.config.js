@@ -16,7 +16,7 @@ module.exports = (baseConfig, env) => {
 
     config.module.rules.push({
         test: /\.svg$/,
-        loader: require.resolve("svg-inline-loader")
+        loader: require.resolve("react-svg-loader")
     });
 
     config.resolve.extensions.push('.ts', '.tsx');
