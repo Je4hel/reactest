@@ -22,6 +22,10 @@ export class Author extends React.Component<IAuthorProps>
         {
             content = <span>{Moment(this.props.date).format("LL")} at {Moment(this.props.date).format("LT")}</span>
         }
+        else 
+        {
+            return null;
+        }
 
         return (
             <span className={outerClasses}>
