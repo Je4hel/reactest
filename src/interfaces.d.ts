@@ -1,48 +1,54 @@
-export interface ICheckboxProps
+export interface IBaseProps
 {
-    id?: string;
-    className?: string
+    className?: string;
 }
 
-export interface ITagProps
+export interface ICheckboxProps extends IBaseProps
+{
+    id?: string;
+}
+
+export interface ITagProps extends IBaseProps
 {
     text: string;
     color?: string;
-    className?: string;
 }
 
-export interface IAuthorProps
+export interface IAuthorProps extends IBaseProps
 {
     name: string;
     date: Date;
-    className?: string;
 }
 
-export interface ILinkboxProps
+export interface ILinkboxProps extends IBaseProps
 {
     url: string;
-    className?: string;
 }
 
-export interface ILinkboxState
+export interface ILinkboxState extends IBaseProps
 {
     image?: string;
     title?: string;
     description?: string;
 }
 
-export interface ITaskProps
+export interface ITaskProps extends IBaseProps
 {
     text: string;
     done?: boolean;
     className?: string;
 }
 
-export interface ICardProps
+export interface ICardProps extends IBaseProps
 {
     title: string;
     content: string;
     author?: string;
     date?: Date;
     tags?: string[];
+}
+
+export interface ISidemenuProps extends IBaseProps
+{
+    
 }

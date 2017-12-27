@@ -1,7 +1,6 @@
 import * as React from "react";
+import * as Classnames from "classnames";
 import { ILinkboxProps, ILinkboxState } from "../interfaces";
-
-let classnames = require("classnames");
 
 export class Linkbox extends React.Component<ILinkboxProps, ILinkboxState>
 {
@@ -22,7 +21,7 @@ export class Linkbox extends React.Component<ILinkboxProps, ILinkboxState>
             backgroundImage: `url(${this.state.image})`
         }
 
-        const outerClasses = classnames("rt-linkbox", this.props.className)
+        const outerClasses = Classnames("rt-linkbox", this.props.className)
 
         return (
             <a className={outerClasses} href={this.props.url}>

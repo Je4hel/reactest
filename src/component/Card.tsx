@@ -1,4 +1,5 @@
 import * as React from "react";
+import * as Classnames from "classnames";
 import { Tag } from "./Tag";
 import { Author } from "./Author";
 import { Linkbox } from "./Linkbox";
@@ -8,6 +9,8 @@ export class Card extends React.Component<ICardProps>
 {
     render ()
     {
+        const outerClasses = Classnames("rt-card", this.props.className);
+
         // const tags = [
         //     { text: "Introduction", color: "#899CFC" }, 
         //     { text: "Reactest Basics", color: "#1CBBB4" },
@@ -16,7 +19,7 @@ export class Card extends React.Component<ICardProps>
         // <ul className="rt-card-tag-list">{ tags }</ul>
 
         return (
-            <div className="rt-card">
+            <div className={outerClasses}>
                 <h2 className="rt-card-title">{this.props.title}</h2>
                 <Author name={this.props.author} date={this.props.date} className="rt-card-author" />
 

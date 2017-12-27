@@ -1,5 +1,5 @@
 import * as React from "react";
-import * as classnames from "classnames";
+import * as Classnames from "classnames";
 import { ITaskProps } from "../interfaces";
 
 const checkbox = require("../asset/checkbox-unticked.svg");
@@ -8,7 +8,7 @@ export class Task extends React.Component<ITaskProps>
 {
     render()
     {
-        let outerClasses = classnames("rt-task", this.props.className);
+        let outerClasses = Classnames("rt-task", this.props.className);
         console.log(checkbox);
 
         return (

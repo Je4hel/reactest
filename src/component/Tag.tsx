@@ -1,7 +1,6 @@
 import * as React from "react";
+import * as Classnames from "classnames";
 import { ITagProps } from "../interfaces";
-
-let classnames = require("classnames");
 
 export class Tag extends React.Component<ITagProps>
 {
@@ -12,7 +11,7 @@ export class Tag extends React.Component<ITagProps>
             color: this.props.color != undefined ? this.props.color : ""
         };
 
-        const outerClasses = classnames("rt-tag", this.props.className);
+        const outerClasses = Classnames("rt-tag", this.props.className);
 
         return (
             <span className={outerClasses} style={ style } title={this.props.text}>{ this.props.text }</span>
