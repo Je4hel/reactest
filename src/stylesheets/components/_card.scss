@@ -8,6 +8,8 @@
     border: 1px solid $color-grey;
     box-shadow: 0 0 50px $color-grey;
 
+    transition: border-color 0.2s;
+
     &.rt-card-editmode
     {
         border-top: none;
@@ -42,6 +44,8 @@
         height: 0;
         border-top-left-radius: 5px;
         border-top-right-radius: 5px;
+
+        transition: height 0.2s;
     }
 
     .rt-card-header

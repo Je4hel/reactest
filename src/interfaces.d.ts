@@ -52,20 +52,21 @@ export interface ITaskProps extends IBaseProps
 
 export interface ICardProps extends IBaseProps, ICardState
 {
-    isEditing?: boolean;
-
     // Events
-    onSaveChanges?: (card: CardModel) => void;
-    onDismissChanges?: () => void;
+    onEdit?: () => boolean;
+    onSaveChanges?: (card: CardModel) => boolean;
+    onDismissChanges?: (card: CardModel) => boolean;
 }
 
 export interface ICardState
 {
+    id: number;
     title: string;
     content: string;
     author?: string;
     date?: Date;
     tags?: string[];
+    isEditing?: boolean;
 }
 
 export interface ISidemenuProps extends IBaseProps

@@ -21,31 +21,33 @@ export class Card extends React.Component<ICardProps, ICardState>
     {
         super(props);
         this.state = {
+            id: this.props.id,
             title: this.props.title,
             content: this.props.content,
             author: this.props.author,
             date: this.props.date,
-            tags: this.props.tags
+            tags: this.props.tags,
+            isEditing: this.props.isEditing
         };
     }
 
     render ()
     {
         const outerClasses = Classnames("rt-card",
-                                        this.props.isEditing ? "rt-card-editmode" : "",
+                                        this.state.isEditing ? "rt-card-editmode" : "",
                                         this.props.className);
 
         let title = null;
         let content = null;
         let actions = null;
 
-        if (this.props.isEditing)
+        if (this.state.isEditing)
         {
             title = <input type="text" defaultValue={this.props.title} placeholder="Title" name={FormInputs.Title} onChange={this.handleInputChange}/>;
             content = <textarea defaultValue={this.props.content} name={FormInputs.Content} onChange={this.handleInputChange}></textarea>
             actions =
                 <div className="rt-card-actions">
-                    <Button danger className="rt-card-action" onClick={this.props.onDismissChanges}>Dismiss</Button>
+                    <Button danger className="rt-card-action" onClick={this.dismissChanges}>Dismiss</Button>
                     <Button primary success className="rt-card-action" onClick={this.saveChanges}>Save changes</Button>
                 </div>;
         }
@@ -55,7 +57,7 @@ export class Card extends React.Component<ICardProps, ICardState>
             content = <div>{this.props.content}</div>;
             actions = 
                 <div className="rt-card-actions">
-                    <Button className="rt-card-action" onClick={this.saveChanges}>Edit</Button>
+                    <Button className="rt-card-action" onClick={this.editCard}>Edit</Button>
                 </div>;
         }
 
@@ -92,11 +94,33 @@ export class Card extends React.Component<ICardProps, ICardState>
         }
     }
 
+    editCard = (event: any) =>
+    {
+        if (!this.props.onEdit || this.props.onEdit())
+        {
+            this.setState({
+                isEditing: true
+            });
+        }
+    }
+
     saveChanges = (event: any) =>
     {
-        if (this.props.onSaveChanges != undefined)
+        if (!this.props.onSaveChanges || this.props.onSaveChanges(CardModel.createFromState(this.state)))
         {
-            this.props.onSaveChanges(CardModel.createFromState(this.state));
+            this.setState({
+                isEditing: false
+            });
+        }
+    }
+
+    dismissChanges = (event: any) =>
+    {
+        if (!this.props.onDismissChanges || this.props.onDismissChanges(CardModel.createFromState(this.state)))
+        {
+            this.setState({
+                isEditing: false
+            });
         }
     }
 }

@@ -19,6 +19,7 @@ export class App extends React.Component<IAppProps, IAppState>
     {
         let newCard = new CardModel("Carte sans titre n°" + this.state.cards.length, "Cette carte n'a encore aucun contenu.");
         newCard.date = new Date;
+        newCard.id = performance.now();
 
         this.setState((prevState, props) => {
             prevState.cards.push(newCard);
@@ -27,6 +28,22 @@ export class App extends React.Component<IAppProps, IAppState>
                 cards: prevState.cards
             }
         });
+    }
+
+    saveCard = (editedCard: CardModel) =>
+    {
+        console.log("Saving card", editedCard);
+
+        this.setState((prevState, props) => {
+            let indexInCollection = prevState.cards.findIndex((c) => c.id == editedCard.id);
+            prevState.cards[indexInCollection] = editedCard;
+
+            return {
+                cards: prevState.cards
+            }
+        });
+
+        return true;
     }
 
     render()
@@ -42,8 +59,8 @@ export class App extends React.Component<IAppProps, IAppState>
                 
                 return 0;
             })
-            .map((card, index) => 
-                <Card key={index} title={card.title} content={card.content} author={card.author} date={card.date} tags={card.tags} />
+            .map((card) => 
+                <Card key={card.id} id={card.id} title={card.title} content={card.content} author={card.author} date={card.date} tags={card.tags} onSaveChanges={this.saveCard} />
             );
 
         return (
