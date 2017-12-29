@@ -1,7 +1,11 @@
 .rt-app
 {
+    height: 100%;
+    box-sizing: border-box;
     display: flex;
     padding: 30px;
+
+    background-color: $color-grey-lighter;
 
     .rt-sidemenu
     {
