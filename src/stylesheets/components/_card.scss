@@ -4,9 +4,9 @@
     padding-top: 0;
     background-color: $color-white;
 
-    border-radius: 20px;
+    border-radius: 8px;
     border: 1px solid $color-grey;
-    box-shadow: 0 0 10px $color-grey;
+    box-shadow: 0 0 5px $color-grey;
 
     transition: border-color 0.2s;
 
@@ -17,7 +17,7 @@
 
         .rt-card-banner
         {
-            height: 20px;
+            height: 10px;
             background: repeating-linear-gradient(
                 -45deg,
                 lighten($color-warning, 20%),
@@ -42,8 +42,8 @@
 
         width: calc(100% + 60px);
         height: 0;
-        border-top-left-radius: 30px;
-        border-top-right-radius: 30px;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
 
         transition: height 0.2s;
     }
