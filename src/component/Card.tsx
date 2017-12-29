@@ -1,5 +1,6 @@
 import * as React from "react";
 import * as Classnames from "classnames";
+import * as Remarkable from "remarkable";
 
 import { ICardProps, ICardState } from "../interfaces";
 
@@ -55,8 +56,10 @@ export class Card extends React.Component<ICardProps, ICardState>
         }
         else
         {
+            let markdown = new Remarkable();
+
             title = this.props.title;
-            content = <div>{this.props.content}</div>;
+            content = <div className="markdown-body" dangerouslySetInnerHTML={{__html: markdown.render(this.props.content)}}></div>;
             actions = 
                 <div className="rt-card-actions">
                     <Button className="rt-card-action" onClick={this.editCard}>Edit</Button>
