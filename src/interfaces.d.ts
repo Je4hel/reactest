@@ -54,6 +54,7 @@ export interface ICardProps extends IBaseProps, ICardState
 {
     // Events
     onEdit?: () => boolean;
+    onDelete?: (card: CardModel) => void;
     onSaveChanges?: (card: CardModel) => boolean;
     onDismissChanges?: (card: CardModel) => boolean;
 }

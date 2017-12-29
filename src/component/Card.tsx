@@ -47,6 +47,8 @@ export class Card extends React.Component<ICardProps, ICardState>
             content = <textarea defaultValue={this.props.content} name={FormInputs.Content} onChange={this.handleInputChange}></textarea>
             actions =
                 <div className="rt-card-actions">
+                    <Button danger className="rt-card-action" onClick={this.deleteCard}>Delete card</Button>
+                    <span className="rt-separator">&middot;</span>
                     <Button danger className="rt-card-action" onClick={this.dismissChanges}>Dismiss</Button>
                     <Button primary success className="rt-card-action" onClick={this.saveChanges}>Save changes</Button>
                 </div>;
@@ -101,6 +103,14 @@ export class Card extends React.Component<ICardProps, ICardState>
             this.setState({
                 isEditing: true
             });
+        }
+    }
+
+    deleteCard = (event: any) =>
+    {
+        if (this.props.onDelete)
+        {
+            this.props.onDelete(CardModel.createFromState(this.state));
         }
     }
 
