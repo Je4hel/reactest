@@ -2,6 +2,8 @@ import * as React from "react";
 import * as Classnames from "classnames";
 import * as Remarkable from "remarkable";
 
+let hljs = require("highlight.js");
+
 import { ICardProps, ICardState } from "../interfaces";
 
 import { Tag } from "./Tag";
@@ -45,7 +47,7 @@ export class Card extends React.Component<ICardProps, ICardState>
         if (this.state.isEditing)
         {
             title = <input type="text" defaultValue={this.props.title} placeholder="Title" name={FormInputs.Title} onChange={this.handleInputChange}/>;
-            content = <textarea defaultValue={this.props.content} name={FormInputs.Content} onChange={this.handleInputChange}></textarea>
+            content = <textarea autoFocus defaultValue={this.props.content} name={FormInputs.Content} onChange={this.handleInputChange}></textarea>
             actions =
                 <div className="rt-card-actions">
                     <Button danger className="rt-card-action" onClick={this.deleteCard}>Delete card</Button>
@@ -56,7 +58,13 @@ export class Card extends React.Component<ICardProps, ICardState>
         }
         else
         {
-            let markdown = new Remarkable();
+            let markdown = new Remarkable({
+                linkify: true,
+                typographer: true,
+                highlight: function (str: any, lang: any) {
+                    return hljs.highlightAuto(str, [lang]).value;
+                }
+            });
 
             title = this.props.title;
             content = <div className="markdown-body" dangerouslySetInnerHTML={{__html: markdown.render(this.props.content)}}></div>;
@@ -71,7 +79,7 @@ export class Card extends React.Component<ICardProps, ICardState>
                 <div className="rt-card-banner"></div>
                 <div className="rt-card-header">
                     <div className="rt-card-info">
-                        <h2>{title}</h2>
+                        <h1>{title}</h1>
                         <Author name={this.props.author} date={this.props.date} className="rt-card-author" />
                     </div>
 
